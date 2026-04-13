@@ -1,0 +1,36 @@
+{
+    "name": "scafera/asset",
+    "description": "Asset management for the Scafera framework",
+    "type": "symfony-bundle",
+    "license": "MIT",
+    "keywords": ["scafera", "asset-mapper", "asset", "php"],
+    "homepage": "https://github.com/scafera/asset",
+    "support": {
+        "issues": "https://github.com/scafera/asset/issues",
+        "source": "https://github.com/scafera/asset"
+    },
+    "require": {
+        "php": ">=8.4",
+        "scafera/kernel": "^1.0",
+        "symfony/asset": "^8.0",
+        "symfony/asset-mapper": "^8.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^12.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Scafera\\Asset\\": "src/"
+        }
+    },
+    "extra": {
+        "scafera-bundles": {
+            "symfonycasts/tailwind-bundle": "Symfonycasts\\TailwindBundle\\SymfonycastsTailwindBundle"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Scafera\\Asset\\Tests\\": "tests/"
+        }
+    }
+}
