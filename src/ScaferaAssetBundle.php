@@ -27,6 +27,8 @@ final class ScaferaAssetBundle extends AbstractBundle
             ],
         ]);
 
+        // DRIFT: Hardcoded TailwindBundle input CSS path — aligns with architecture's assets directory when installed.
+        // Should be replaced by a dynamic solution or even a dedicated tailwind package that owns its own config.
         if (isset($builder->getExtensions()['symfonycasts_tailwind'])) {
             $builder->prependExtensionConfig('symfonycasts_tailwind', [
                 'input_css' => ['%kernel.project_dir%/' . $assetsDir . '/styles/app.css'],
