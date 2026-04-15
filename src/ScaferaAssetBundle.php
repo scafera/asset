@@ -26,6 +26,12 @@ final class ScaferaAssetBundle extends AbstractBundle
                 'paths' => [$assetsDir . '/'],
             ],
         ]);
+
+        if (isset($builder->getExtensions()['symfonycasts_tailwind'])) {
+            $builder->prependExtensionConfig('symfonycasts_tailwind', [
+                'input_css' => ['%kernel.project_dir%/' . $assetsDir . '/styles/app.css'],
+            ]);
+        }
     }
 
     public function loadExtension(array $config, ContainerConfigurator $container, ContainerBuilder $builder): void
