@@ -9,6 +9,11 @@ use Scafera\Kernel\Tool\FileFinder;
 
 final class AssetMapperLeakageValidator implements ValidatorInterface
 {
+    public function getId(): string
+    {
+        return 'asset.assetmapper-leakage';
+    }
+
     public function getName(): string
     {
         return 'No AssetMapper imports in userland';
