@@ -2,11 +2,15 @@
 
 Asset management for the Scafera framework. Configures Symfony's AssetMapper internally — your code references assets via `asset()` in Twig templates, never through PHP imports.
 
+> **Provides:** Asset management for Scafera — configures Symfony's AssetMapper internally; projects reference assets via Twig's `asset()` function, never PHP imports. Companion bundles (e.g. TailwindBundle) auto-register when installed.
+>
+> **Depends on:** A Scafera host project with `scafera/frontend` installed (for Twig's `asset()` function) and an `assets/` directory at the project root.
+>
+> **Extension points:** None of its own — AssetMapper is configured internally. Extra asset paths via `framework.asset_mapper.paths` in `config/config.yaml`. Ecosystem integrations (e.g. TailwindBundle) auto-register via the kernel's `extra.scafera-bundles` mechanism.
+>
+> **Not responsible for:** Template rendering (owned by `scafera/frontend`) · JavaScript bundling (AssetMapper uses native ES modules) · Node.js tooling (TailwindBundle manages its own standalone binary) · folder conventions (owned by architecture packages).
+
 This is a **capability package** (adoption gate). It adds optional asset support to a Scafera project. It does not define folder structure or architectural rules — those belong to architecture packages.
-
-## Core Idea
-
-Scafera treats the asset pipeline as an implementation detail. This package activates AssetMapper with sensible defaults, provides boundary enforcement, and declares companion bundles for the asset ecosystem — so third-party tools like TailwindBundle work out of the box with zero configuration.
 
 ## Installation
 
@@ -109,12 +113,6 @@ framework:
             - 'assets/'
             - 'vendor/some-package/assets/'
 ```
-
-## What This Package Does NOT Own
-
-- **Template rendering** — owned by `scafera/frontend`
-- **JavaScript bundling** — AssetMapper uses native ES modules, no bundler needed
-- **Node.js tooling** — TailwindBundle downloads its own standalone binary
 
 ## License
 
